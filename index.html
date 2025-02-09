@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BirdFoodGit</title>
+    <link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Bubbles&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Recipe Color Palette</h1>
+
+    <button id="addDishBtn">Add a Dish</button>
+
+    <div id="dishFormContainer" class="hidden">
+        <div id="allInputs">   
+            <input type="text" id="dishName" placeholder="Dish Name">
+            
+            <div id="colorSelector">
+                <button id="chooseColorBtn">Choose Color</button>
+                <div id="colorPalette" class="hidden"></div>
+            </div>
+
+            <input type="file" id="dishImage" accept="image/*">
+            <div id="imagePreview"></div>
+
+            <button id="saveDishBtn">Save Dish</button>
+        </div> 
+    </div>
+
+    <h2>Saved Dishes</h2>
+    <div id="savedDishes"></div>
+    
+    <!-- Hidden Recipe Details Menu -->
+<div id="recipeDetailsContainer" class="hidden">
+    <div id="recipeDetails">
+        <span id="closeDetails" class="close-btn">❌</span>
+        <h2 id="detailsDishName"></h2>
+        <img id="detailsDishImage" src="" alt="">
+        <p><strong>Associated Color:</strong> <span id="detailsDishColor"></span></p>
+        <p id="detailsDishText"></p>
+    </div>
+</div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,288 @@
+/* General Styling */
+body {
+    font-family: "Concert One", serif;
+    text-align: center;
+    color: rgb(169, 179, 195);
+    background-color: rgb(101, 136, 232);
+}
+
+#addDishBtn {
+    font-family: "Rubik Bubbles", serif;
+    width: 9rem;
+    height: 1.75rem;
+    align-items: center;
+    padding-bottom: .15rem;
+    text-align: center;
+    justify-content: center;
+    color: rgb(169, 179, 195);
+    background-color: rgb(101, 136, 232);
+    border: .1rem solid rgb(126, 119, 119);
+    border-radius: .3rem;
+    font-size: 1.2rem;
+    margin-bottom: .1rem;
+}
+
+#dishFormContainer {
+    margin-left: 21rem;
+    margin-top: 2rem;;
+    padding: 1rem;
+    height: 2.5rem;
+    width: 45%;
+    background-color: rgb(101, 136, 232);
+    border: 1px solid rgb(81, 3, 3);
+    border-radius: 10px;
+}
+
+#allInputs{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.hidden {
+    display: none !important; /* ✅ Forces the element to disappear */
+    visibility: hidden;
+    opacity: 0;
+}
+
+/* Color Palette */
+#colorPalette {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 10px;
+    background: white;
+    padding: 5px; /* ✅ Smaller padding */
+    border: 1px solid #ccc;
+    max-width: 100px; /* ✅ Reduce width further */
+    max-height: 75px; /* ✅ Reduce height further */
+    overflow-y: auto; /* ✅ Allow scrolling if too many colors */
+    gap: 3px; /* ✅ Smaller gaps between colors */
+}
+
+.color-box {
+    width: 15px; /* ✅ Reduce size */
+    height: 15px;
+    cursor: pointer;
+    border: 1px solid #000;
+    border-radius: 2px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.color-box:hover {
+    transform: scale(1.2);
+}
+
+/* Saved Colors */
+#savedColors {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Dynamic Contrast for Text */
+.dark-text {
+    color: black;
+}
+
+.light-text {
+    color: white;
+}
+
+/* Buttons */
+.delete-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: rgba(255, 255, 255, 0.7);
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.delete-btn:hover {
+    background: rgba(255, 0, 0, 0.8);
+    color: white;
+}
+
+/* Editable Names */
+.editable-name {
+    cursor: pointer;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.edit-input {
+    font-size: 14px;
+    padding: 5px;
+    text-align: center;
+    width: 80%;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.edit-input:focus {
+    background-color: rgba(255, 255, 255, 1);
+    border: 1px solid black;
+}
+
+/* Recipe Box (Default if No Image) */
+.recipe-box {
+    width: 125px; /* ✅ Shrunk from 150px */
+    height: 125px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    transition: background-color 0.3s ease-in-out;
+    margin: 10px;
+    border: 2px solid black;
+    position: relative;
+    overflow: hidden;
+}
+
+.recipe-box img {
+    width: 100px;  /* ✅ Set max width */
+    height: 100px; /* ✅ Set max height */
+    object-fit: cover;
+    border-radius: 10px;
+    position: absolute; /* ✅ Keep it inside the box */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* ✅ Center Image */
+}
+
+#savedDishes {
+    max-width: 35rem;; /* ✅ Reduce width further */
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 3.25rem;
+    align-items: center;
+    margin: 0 auto;
+    padding: 10px;
+    border: #4b9199 .25rem solid;
+    border-radius: .3rem;
+}
+#recipeDetailsContainer {
+    display: none; /* Starts hidden */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.8); /* ✅ Semi-transparent white */
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    width: auto;
+    max-width: 80%;
+    text-align: center;
+    max-height: 80vh;  /* ✅ Allow the box to expand */
+    overflow-y: auto;   /* ✅ Enables scrolling if too much content */
+    filter: brightness(45%); /* ✅ Darkens the background image */
+}
+
+/* ✅ Add Dark Overlay for Readability */
+#recipeDetailsContainer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* ✅ Dark overlay */
+    z-index: -1;
+    border-radius: 10px;
+}
+
+/* ✅ Ensure it becomes visible when needed */
+#recipeDetailsContainer:not(.hidden) {
+    display: block;
+}
+
+#detailsDishImage {
+    max-width: 100%;
+    height: auto; /* ✅ Image resizes based on content */
+    border-radius: 8px;
+    display: block;
+    margin: 10px auto;
+}
+
+.close-btn {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    color: red;
+    background: white;
+    border-radius: 50%;
+    padding: 3px 7px;
+    font-weight: bold;
+    transition: transform 0.2s ease-in-out;
+}
+
+.close-btn:hover {
+    transform: scale(1.2);
+    background: red;
+    color: white;
+}
+
+#recipeDetails {
+    max-width: 90%;
+    text-align: center;
+    padding: 10px;
+    overflow-wrap: break-word; /* ✅ Breaks long words */
+}
+
+#detailsDishText {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color:aliceblue;
+}
+
+#detailsDishName {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* ✅ Improves readability */
+}
+
+#detailsDishColor {
+    font-size: 18px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+#recipeDetailsContainer {
+    color: white; /* Default to white */
+}
+
+.delete-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: rgba(255, 255, 255, 0.8);
+    color: rgb(255, 6, 6);
+    border: none;
+    font-size: .25rem;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.delete-btn:hover {
+    background: rgb(165, 0, 0);
+}
